@@ -8,9 +8,9 @@
 </head>
 <body>
 <div id="app">
-    </br></br></br></br>
+    </br></br>
         <div class="row h-100 justify-content-center align-items-center">
-            <div class="col-12 col-md-3 ml-4 card">
+            <div class="col-12 col-md-4 ml-4 card" style="height:500px;">
                   <log-component />
             </div>
     </div>

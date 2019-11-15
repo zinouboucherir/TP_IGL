@@ -1,22 +1,24 @@
 <template>
-  <!-- Material form login -->
   <form action="">
     <br/>
-    <div class="text-center">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/e/ed/ESI_Logo.png" height="80" alt="">
-    </div>
-    <div class="grey-text">
+    <div class="text-left col px-md-3">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/e/ed/ESI_Logo.png" height="80" alt=""></div>
+      <br/>
+     <p class="mb-4 mt-4 h2 text-monospace text-dark list-inline text-center">Connexion</p>
+    <div class="">
       <mdb-input v-model="fields.email" label="Adresse email" icon="envelope" type="email"/>
+      <br/>
       <mdb-input v-model="fields.password" label="Mot de passe" icon="lock" type="password"/>
     </div>
     <br/>
     <div class="text-center">
-     <mdb-btn color="elegant">Connexion</mdb-btn>
+     <mdb-btn  outline="black" type="button" class="btn btn-black" style="border-radius:5px;">Se connecter</mdb-btn>
+     <br/>
+     <br/>
     </div>
-    <br/><br/>
   </form>
-  <!-- Material form login -->
 </template>
+ 
 <script>
 
   import { mdbInput, mdbBtn } from 'mdbvue';
