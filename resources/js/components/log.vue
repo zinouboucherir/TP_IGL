@@ -1,10 +1,10 @@
 <template>
-  <form action="">
+  <form action="" class="text-info">
     <br/>
-    <div class="text-left col px-md-3">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/e/ed/ESI_Logo.png" height="80" alt=""></div>
+    <div class="text-center col px-md-3"><img src="../../../public/assets/ESI_Logo2.png" height="100" alt="">
+      </div>
       <br/>
-     <p class="mb-4 mt-4 h2 text-monospace text-dark list-inline text-center">Connexion</p>
+     <p class="mb-4 mt-4 h2 text-monospace text-info list-inline text-center ">Connexion</p>
     <div class="">
       <mdb-input v-model="fields.email" label="Adresse email" icon="envelope" type="email"/>
       <br/>
@@ -12,7 +12,7 @@
     </div>
     <br/>
     <div class="text-center">
-     <mdb-btn  outline="black" type="button" class="btn btn-black" style="border-radius:5px;">Se connecter</mdb-btn>
+     <mdb-btn  outline="primary-text" type="button" style="border-radius:5px;">Se connecter</mdb-btn>
      <br/>
      <br/>
     </div>

@@ -1,10 +1,10 @@
 <template>
   <mdb-container class="mt-3">
-    <mdb-card>
+    <mdb-card style="border-radius:5px;">
       <br/>
-     <div class="text-left col px-md-5">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/e/ed/ESI_Logo.png" height="80" alt=""></div>
-      <mdb-card-title class="mt-4 h2 text-monospace text-dark list-inline text-center">Inscription</mdb-card-title>
+     <div class="text-center col px-md-5">
+      <img src="../../../public/assets/ESI_Logo2.png" height="100" alt=""></div>
+      <mdb-card-title class="mt-4 h2 text-monospace  text-info text-center" >Inscription</mdb-card-title>
       <mdb-card-body>
       
         <form class="needs-validation" novalidate @submit.prevent="submitForm">
@@ -38,9 +38,10 @@
            
           </mdb-row>
             <br/>
-          <div class="text-center">
-                <mdb-btn size="lg" type="submit" class="font-weight-bold" outline="black" style="border-radius:5px;">S'inscrire</mdb-btn>
-          </div>
+        
+     <mdb-card-footer class="d-flex white justify-content-center">
+          <mdb-btn outline="info">S'inscrire</mdb-btn>
+        </mdb-card-footer>
         </form>
       </mdb-card-body>
     </mdb-card>
