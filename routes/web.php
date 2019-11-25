@@ -25,3 +25,4 @@ Route::get('/con', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/get_marks','EtudiantController@get_marks')->name('get_marks'); 

@@ -12,82 +12,41 @@
         </tr>
       </mdb-tbl-head>
       <mdb-tbl-body>
-        <tr>
-          <th>IGL</th>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
+        <tr v-for="note in notes" :key="note">
+          <th>{{note.module}}</th>
+          <td>{{note.cc}}</td>
+          <td>{{note.tp}}</td>
+          <td>{{note.ci}}</td>
+          <td>{{note.cf}}</td>
+          <td>{{note.moyenne}}</td>
         </tr>
-        <tr>
-          <th>SYC</th>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-        </tr>
-        <tr>
-          <th>RO</th>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-        </tr>
-         <tr>
-          <th>THP</th>
-       <td>0</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-        </tr>
-         <tr>
-          <th>ORGA</th>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-        </tr>
-         <tr>
-          <th>ANUM</th>
-           <td>0</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-        </tr>
-         <tr>
-          <th>RES</th>
-           <td>0</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-        </tr>
-         <tr>
-          <th>ANG4</th>
-           <td>0</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-        </tr>
+
+    
       </mdb-tbl-body>
     </mdb-tbl>
   </div>
 </template>
 <script>
+import axios from "axios"; 
   import { mdbTbl, mdbTblHead, mdbTblBody } from 'mdbvue';
   export default {
     name: 'TablePage',
+    props:['url'],
     components: {
       mdbTbl,
       mdbTblHead,
       mdbTblBody
+    },data () {
+      return {
+        _url : this.url, 
+        notes :''
+      }
+    }
+    
+    ,mounted ()
+    {
+      axios.get(this._url)
+      .then(response => (this.notes=response.notes)); 
     }
   }
 </script>

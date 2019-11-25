@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    
 </head>
 <body>
 <div id="app">
             <div >
-                  <navbar-component />
+                  <navbar-component url={{route('logout')}}/>
             </div>
             <br/>
             <div  class="col-md-12" >
@@ -17,7 +17,7 @@
                             <div class="col-md-3">
                                     <card-component /> </div>
                             <div class="col-md-9 card">
-                                    <table-component /> </div>
+                            <table-component url={{route('get_marks')}} /> </div>
                          </div> 
            </div>
     </div>
