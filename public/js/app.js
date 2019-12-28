@@ -2225,50 +2225,15 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Basic',
+  props: ['url'],
   components: {
     mdbInput: mdbvue__WEBPACK_IMPORTED_MODULE_0__["mdbInput"],
     mdbBtn: mdbvue__WEBPACK_IMPORTED_MODULE_0__["mdbBtn"]
   },
   data: function data() {
     return {
-      fields: {
-        password: "",
-        email: ""
-      }
+      __url: this.url
     };
-  },
-  methods: {
-    validate: function validate() {
-      var form = Array.prototype.slice.call(arguments);
-      var emailRegexp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-
-      for (var index in form) {
-        var field = form[index];
-
-        if (field === "email" && !emailRegexp.test(this.fields[field])) {
-          return false;
-        } else if (this.fields[field] === "") {
-          return false;
-        }
-      }
-
-      return true;
-    },
-    submitForm: function submitForm(event) {
-      var _this = this;
-
-      event.target.classList.add("was-validated");
-
-      if (this.validate("password", "email")) {
-        axios.post("/test", this.fields).then(function (response) {
-          alert("Message sent!");
-          _this.fields = {};
-          event.target.classList.remove("was-validated");
-        })["catch"](function (error) {
-          console.log(error);
-        });
-      }
-    }
   }
 });
 
@@ -2309,9 +2274,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'HelloWorld',
+  props: ['url'],
   components: {
     mdbNavbar: mdbvue__WEBPACK_IMPORTED_MODULE_0__["mdbNavbar"],
     mdbNavbarBrand: mdbvue__WEBPACK_IMPORTED_MODULE_0__["mdbNavbarBrand"],
@@ -2433,62 +2401,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var mdbvue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! mdbvue */ "./node_modules/mdbvue/lib/index.js");
-/* harmony import */ var mdbvue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(mdbvue__WEBPACK_IMPORTED_MODULE_0__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var mdbvue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! mdbvue */ "./node_modules/mdbvue/lib/index.js");
+/* harmony import */ var mdbvue__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(mdbvue__WEBPACK_IMPORTED_MODULE_1__);
 //
 //
 //
@@ -2518,12 +2434,27 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'TablePage',
+  props: ['url'],
   components: {
-    mdbTbl: mdbvue__WEBPACK_IMPORTED_MODULE_0__["mdbTbl"],
-    mdbTblHead: mdbvue__WEBPACK_IMPORTED_MODULE_0__["mdbTblHead"],
-    mdbTblBody: mdbvue__WEBPACK_IMPORTED_MODULE_0__["mdbTblBody"]
+    mdbTbl: mdbvue__WEBPACK_IMPORTED_MODULE_1__["mdbTbl"],
+    mdbTblHead: mdbvue__WEBPACK_IMPORTED_MODULE_1__["mdbTblHead"],
+    mdbTblBody: mdbvue__WEBPACK_IMPORTED_MODULE_1__["mdbTblBody"]
+  },
+  data: function data() {
+    return {
+      _url: this.url,
+      notes: ''
+    };
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(this._url).then(function (response) {
+      return _this.notes = response.notes;
+    });
   }
 });
 
@@ -39096,75 +39027,75 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("form", { staticClass: "text-info", attrs: { action: "" } }, [
-    _c("br"),
-    _vm._v(" "),
-    _vm._m(0),
-    _vm._v(" "),
-    _c("br"),
-    _vm._v(" "),
-    _c(
-      "p",
-      {
-        staticClass:
-          "mb-4 mt-4 h2 text-monospace text-info list-inline text-center "
-      },
-      [_vm._v("Connexion")]
-    ),
-    _vm._v(" "),
-    _c(
-      "div",
-      {},
-      [
-        _c("mdb-input", {
-          attrs: { label: "Adresse email", icon: "envelope", type: "email" },
-          model: {
-            value: _vm.fields.email,
-            callback: function($$v) {
-              _vm.$set(_vm.fields, "email", $$v)
+  return _c(
+    "form",
+    { staticClass: "text-info", attrs: { action: _vm.__url, method: "POST" } },
+    [
+      _c("br"),
+      _vm._v(" "),
+      _vm._m(0),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
+      _c(
+        "p",
+        {
+          staticClass:
+            "mb-4 mt-4 h2 text-monospace text-info list-inline text-center "
+        },
+        [_vm._v("Connexion")]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {},
+        [
+          _c("mdb-input", {
+            attrs: {
+              name: "email",
+              label: "Adresse email",
+              icon: "envelope",
+              type: "email"
+            }
+          }),
+          _vm._v(" "),
+          _c("br"),
+          _vm._v(" "),
+          _c("mdb-input", {
+            attrs: {
+              name: "password",
+              label: "Mot de passe",
+              icon: "lock",
+              type: "password"
+            }
+          })
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "text-center" },
+        [
+          _c(
+            "mdb-btn",
+            {
+              staticStyle: { "border-radius": "5px" },
+              attrs: { outline: "primary-text", type: "submit" }
             },
-            expression: "fields.email"
-          }
-        }),
-        _vm._v(" "),
-        _c("br"),
-        _vm._v(" "),
-        _c("mdb-input", {
-          attrs: { label: "Mot de passe", icon: "lock", type: "password" },
-          model: {
-            value: _vm.fields.password,
-            callback: function($$v) {
-              _vm.$set(_vm.fields, "password", $$v)
-            },
-            expression: "fields.password"
-          }
-        })
-      ],
-      1
-    ),
-    _vm._v(" "),
-    _c("br"),
-    _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "text-center" },
-      [
-        _c(
-          "mdb-btn",
-          {
-            staticStyle: { "border-radius": "5px" },
-            attrs: { outline: "primary-text", type: "button" }
-          },
-          [_vm._v("Se connecter")]
-        ),
-        _vm._v(" "),
-        _c("br"),
-        _vm._v(" "),
-        _c("br")
-      ],
-      1
-    )
-  ])
+            [_vm._v("Se connecter")]
+          ),
+          _vm._v(" "),
+          _c("br"),
+          _vm._v(" "),
+          _c("br")
+        ],
+        1
+      )
+    ]
+  )
 }
 var staticRenderFns = [
   function() {
@@ -39276,9 +39207,21 @@ var render = function() {
                 1
               ),
               _vm._v(" "),
-              _c("mdb-nav-item", { attrs: { href: "#", icon: "arrow-left" } }, [
-                _vm._v("Déconnecter")
-              ])
+              _c(
+                "mdb-nav-item",
+                {
+                  attrs: {
+                    onclick: "document.getElementById('logout-form').submit();",
+                    icon: "arrow-left"
+                  }
+                },
+                [_vm._v("Déconnecter")]
+              ),
+              _vm._v(" "),
+              _c("form", {
+                staticStyle: { display: "none" },
+                attrs: { id: "logout-form", action: _vm.url, method: "POST" }
+              })
             ],
             1
           )
@@ -39545,119 +39488,25 @@ var render = function() {
             ])
           ]),
           _vm._v(" "),
-          _c("mdb-tbl-body", [
-            _c("tr", [
-              _c("th", [_vm._v("IGL")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("0")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("0")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("0")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("0")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("0")])
-            ]),
-            _vm._v(" "),
-            _c("tr", [
-              _c("th", [_vm._v("SYC")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("0")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("0")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("0")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("0")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("0")])
-            ]),
-            _vm._v(" "),
-            _c("tr", [
-              _c("th", [_vm._v("RO")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("0")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("0")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("0")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("0")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("0")])
-            ]),
-            _vm._v(" "),
-            _c("tr", [
-              _c("th", [_vm._v("THP")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("0")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("0")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("0")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("0")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("0")])
-            ]),
-            _vm._v(" "),
-            _c("tr", [
-              _c("th", [_vm._v("ORGA")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("0")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("0")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("0")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("0")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("0")])
-            ]),
-            _vm._v(" "),
-            _c("tr", [
-              _c("th", [_vm._v("ANUM")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("0")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("0")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("0")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("0")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("0")])
-            ]),
-            _vm._v(" "),
-            _c("tr", [
-              _c("th", [_vm._v("RES")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("0")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("0")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("0")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("0")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("0")])
-            ]),
-            _vm._v(" "),
-            _c("tr", [
-              _c("th", [_vm._v("ANG4")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("0")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("0")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("0")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("0")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("0")])
-            ])
-          ])
+          _c(
+            "mdb-tbl-body",
+            _vm._l(_vm.notes, function(note) {
+              return _c("tr", { key: note }, [
+                _c("th", [_vm._v(_vm._s(note.module))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(note.cc))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(note.tp))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(note.ci))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(note.cf))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(note.moyenne))])
+              ])
+            }),
+            0
+          )
         ],
         1
       )
@@ -51882,6 +51731,7 @@ var app = new Vue({
 /***/ (function(module, exports, __webpack_require__) {
 
 window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
  * for JavaScript based Bootstrap features such as modals and tabs. This
@@ -52438,8 +52288,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\TP\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\TP\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp1\htdocs\TP\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp1\htdocs\TP\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
