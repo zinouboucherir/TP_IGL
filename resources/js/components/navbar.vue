@@ -16,10 +16,8 @@
         
           </mdb-dropdown-menu>
         </mdb-dropdown>
-        <mdb-nav-item onclick="document.getElementById('logout-form').submit();" icon="arrow-left">Déconnecter</mdb-nav-item>
-           <form id="logout-form" v-bind:action="url" method="POST" style="display: none;">
-                          
-                                    </form>
+        <mdb-nav-item href="#" icon="arrow-left">Déconnecter</mdb-nav-item>
+        
       </mdb-navbar-nav>
     </mdb-navbar-toggler>
   </mdb-navbar>
@@ -28,7 +26,6 @@
   import { mdbDropdown, mdbDropdownToggle, mdbDropdownMenu, mdbDropdownItem, mdbContainer, mdbNavbar, mdbNavbarBrand, mdbNavbarToggler, mdbNavbarNav, mdbNavItem } from 'mdbvue';
   export default {
     name: 'HelloWorld',
-    props:['url'],
     components: {
       mdbNavbar,
       mdbNavbarBrand,
