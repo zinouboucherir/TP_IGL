@@ -2115,16 +2115,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'FormsPage',
+  props: ['url'],
   components: {
     mdbRow: mdbvue__WEBPACK_IMPORTED_MODULE_0__["mdbRow"],
     mdbCol: mdbvue__WEBPACK_IMPORTED_MODULE_0__["mdbCol"],
@@ -2141,6 +2135,51 @@ __webpack_require__.r(__webpack_exports__);
     return {
       guests: 4
     };
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/c.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/c.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var mdbvue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! mdbvue */ "./node_modules/mdbvue/lib/index.js");
+/* harmony import */ var mdbvue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(mdbvue__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'CardPage',
+  components: {
+    mdbCard: mdbvue__WEBPACK_IMPORTED_MODULE_0__["mdbCard"],
+    mdbCardImage: mdbvue__WEBPACK_IMPORTED_MODULE_0__["mdbCardImage"],
+    mdbCardBody: mdbvue__WEBPACK_IMPORTED_MODULE_0__["mdbCardBody"],
+    mdbCardTitle: mdbvue__WEBPACK_IMPORTED_MODULE_0__["mdbCardTitle"],
+    mdbCardText: mdbvue__WEBPACK_IMPORTED_MODULE_0__["mdbCardText"],
+    mdbBtn: mdbvue__WEBPACK_IMPORTED_MODULE_0__["mdbBtn"],
+    mdbView: mdbvue__WEBPACK_IMPORTED_MODULE_0__["mdbView"],
+    mdbMask: mdbvue__WEBPACK_IMPORTED_MODULE_0__["mdbMask"]
   }
 });
 
@@ -2173,9 +2212,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'CardPage',
+  props: ['etudiant', 'admin'],
   components: {
     mdbCard: mdbvue__WEBPACK_IMPORTED_MODULE_0__["mdbCard"],
     mdbCardImage: mdbvue__WEBPACK_IMPORTED_MODULE_0__["mdbCardImage"],
@@ -2220,8 +2265,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Basic',
@@ -2232,7 +2275,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      __url: this.url
+      log_url: this.url
     };
   }
 });
@@ -2358,6 +2401,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['url'],
   components: {
     mdbContainer: mdbvue__WEBPACK_IMPORTED_MODULE_0__["mdbContainer"],
     mdbInput: mdbvue__WEBPACK_IMPORTED_MODULE_0__["mdbInput"],
@@ -2373,20 +2417,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      fields: {
-        name: "",
-        prénom: "",
-        email: "",
-        password: "",
-        password1: "",
-        message: ""
-      }
+      register_url: this.url
     };
-  },
-  methods: {
-    submitForm: function submitForm(event) {
-      event.target.classList.add("was-validated"); // submit form
-    }
   }
 });
 
@@ -2437,24 +2469,14 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'TablePage',
-  props: ['url'],
+  props: ['notes'],
   components: {
     mdbTbl: mdbvue__WEBPACK_IMPORTED_MODULE_1__["mdbTbl"],
     mdbTblHead: mdbvue__WEBPACK_IMPORTED_MODULE_1__["mdbTblHead"],
     mdbTblBody: mdbvue__WEBPACK_IMPORTED_MODULE_1__["mdbTblBody"]
   },
   data: function data() {
-    return {
-      _url: this.url,
-      notes: ''
-    };
-  },
-  mounted: function mounted() {
-    var _this = this;
-
-    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(this._url).then(function (response) {
-      return _this.notes = response.notes;
-    });
+    return {};
   }
 });
 
@@ -38814,119 +38836,130 @@ var render = function() {
               ),
               _vm._v(" "),
               _c(
-                "mdb-card-body",
+                "form",
+                { attrs: { action: this.url, method: "POST" } },
                 [
                   _c(
-                    "mdb-row",
+                    "mdb-card-body",
                     [
                       _c(
-                        "mdb-col",
-                        { attrs: { md: "6" } },
+                        "mdb-row",
                         [
-                          _c("mdb-input", {
-                            attrs: { label: "Nom", icon: "user" }
-                          }),
+                          _c(
+                            "mdb-col",
+                            { attrs: { md: "6" } },
+                            [
+                              _c("mdb-input", {
+                                attrs: {
+                                  label: "Nom",
+                                  name: "nom",
+                                  icon: "user",
+                                  required: ""
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("mdb-input", {
+                                attrs: {
+                                  far: "",
+                                  icon: "user",
+                                  name: "prenom",
+                                  label: "Prénom",
+                                  required: ""
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("mdb-input", {
+                                attrs: {
+                                  icon: "envelope",
+                                  name: "email",
+                                  label: "adresse email ",
+                                  required: ""
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("mdb-input", {
+                                attrs: {
+                                  far: "",
+                                  icon: "map",
+                                  name: "adress",
+                                  label: "Adresse",
+                                  required: ""
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("mdb-input", {
+                                attrs: {
+                                  icon: "lock",
+                                  type: "password",
+                                  name: "password",
+                                  label: "Mot de passe",
+                                  required: ""
+                                }
+                              })
+                            ],
+                            1
+                          ),
                           _vm._v(" "),
-                          _c("mdb-input", {
-                            attrs: { far: "", icon: "user", label: "Prénom" }
-                          }),
-                          _vm._v(" "),
-                          _c("mdb-input", {
-                            attrs: { icon: "envelope", label: "adresse email " }
-                          }),
-                          _vm._v(" "),
-                          _c("mdb-input", {
-                            attrs: { far: "", icon: "map", label: "Adresse" }
-                          }),
-                          _vm._v(" "),
-                          _c("mdb-input", {
-                            attrs: { icon: "lock", label: "Mot de passe" }
-                          })
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "mdb-col",
-                        { attrs: { md: "6" } },
-                        [
-                          _c("mdb-input", {
-                            attrs: {
-                              label: "Date de naissance",
-                              type: "date",
-                              far: "",
-                              icon: "calendar"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("mdb-input", {
-                            attrs: { icon: "map", label: "Lieu de naissance" }
-                          }),
-                          _vm._v(" "),
-                          _c("mdb-input", {
-                            attrs: {
-                              label: "Matricule",
-                              far: "",
-                              icon: "id-card"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("div", [
-                            _c("span", { staticClass: "text-grey" }, [
-                              _vm._v("Annee d'etude")
-                            ]),
-                            _vm._v(" "),
-                            _c(
-                              "select",
-                              {
-                                staticClass:
-                                  "custom-select custom-select-sm grey lighten-4"
-                              },
-                              [
-                                _c("option", { attrs: { selected: "" } }, [
-                                  _vm._v("1CP")
-                                ]),
-                                _vm._v(" "),
-                                _c("option", { attrs: { value: "2" } }, [
-                                  _vm._v("2CP")
-                                ]),
-                                _vm._v(" "),
-                                _c("option", { attrs: { value: "3" } }, [
-                                  _vm._v("1CS")
-                                ]),
-                                _vm._v(" "),
-                                _c("option", { attrs: { value: "3" } }, [
-                                  _vm._v("2CS")
-                                ]),
-                                _vm._v(" "),
-                                _c("option", { attrs: { value: "3" } }, [
-                                  _vm._v("3CS")
-                                ])
-                              ]
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("mdb-input", {
-                            attrs: { icon: "users", label: "Groupe" }
-                          })
+                          _c(
+                            "mdb-col",
+                            { attrs: { md: "6" } },
+                            [
+                              _c("mdb-input", {
+                                attrs: {
+                                  label: "Matricule",
+                                  name: "matricule",
+                                  far: "",
+                                  icon: "id-card",
+                                  required: ""
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("div"),
+                              _vm._v(" "),
+                              _c("mdb-input", {
+                                attrs: {
+                                  icon: "users",
+                                  name: "groupe",
+                                  label: "Groupe",
+                                  required: ""
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("mdb-input", {
+                                attrs: {
+                                  icon: "users",
+                                  name: "promo",
+                                  label: "Promo",
+                                  required: ""
+                                }
+                              })
+                            ],
+                            1
+                          )
                         ],
                         1
                       )
                     ],
                     1
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "mdb-card-footer",
-                { staticClass: "d-flex white justify-content-center" },
-                [
+                  ),
+                  _vm._v(" "),
                   _c(
-                    "mdb-btn",
-                    { attrs: { outline: "info", icon: "paper-plane" } },
-                    [_vm._v("Ajouter")]
+                    "mdb-card-footer",
+                    { staticClass: "d-flex white justify-content-center" },
+                    [
+                      _c(
+                        "mdb-btn",
+                        {
+                          attrs: {
+                            outline: "info",
+                            type: "submit",
+                            icon: "paper-plane"
+                          }
+                        },
+                        [_vm._v("Ajouter")]
+                      )
+                    ],
+                    1
                   )
                 ],
                 1
@@ -38934,6 +38967,71 @@ var render = function() {
             ],
             1
           )
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/c.vue?vue&type=template&id=2508e3b0&":
+/*!****************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/c.vue?vue&type=template&id=2508e3b0& ***!
+  \****************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "mdb-card",
+    [
+      _c("mdb-view", { attrs: { hover: "" } }, [
+        _c(
+          "a",
+          { attrs: { href: "#!" } },
+          [
+            _c("mdb-card-image", {
+              attrs: {
+                src:
+                  "https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20%282%29.jpg",
+                alt: "Card image cap"
+              }
+            }),
+            _vm._v(" "),
+            _c("mdb-mask", {
+              attrs: { "flex-center": "", waves: "", overlay: "white-slight" }
+            })
+          ],
+          1
+        )
+      ]),
+      _vm._v(" "),
+      _c(
+        "mdb-card-body",
+        [
+          _c("mdb-card-title", [_vm._v("Card with waves effect")]),
+          _vm._v(" "),
+          _c("mdb-card-text", [
+            _vm._v(
+              "Some quick example text to build on the card title and make up the bulk of the card's content."
+            )
+          ]),
+          _vm._v(" "),
+          _c("mdb-btn", { attrs: { color: "primary" } }, [_vm._v("Button")])
         ],
         1
       )
@@ -38985,15 +39083,41 @@ var render = function() {
       _c(
         "mdb-card-body",
         [
-          _c("mdb-card-title", { staticClass: "text-center" }, [
-            _vm._v("Boucherir Mohamed Zineddine")
-          ]),
-          _vm._v(" "),
-          _c("mdb-card-text", [_c("h6", [_vm._v("Matricule:17/0010")])]),
-          _vm._v(" "),
-          _c("mdb-card-text", [_c("h6", [_vm._v("Promo:1CS")])]),
-          _vm._v(" "),
-          _c("mdb-card-text", [_c("h6", [_vm._v("Groupe:06")])]),
+          this.admin
+            ? _c(
+                "div",
+                [
+                  _c("mdb-card-title", { staticClass: "text-center" }, [
+                    _vm._v(_vm._s(this.admin))
+                  ])
+                ],
+                1
+              )
+            : _c(
+                "div",
+                [
+                  _c("mdb-card-title", { staticClass: "text-center" }, [
+                    _vm._v(
+                      _vm._s(this.etudiant.nom + " " + this.etudiant.prenom)
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("mdb-card-text", [
+                    _c("h6", [
+                      _vm._v("Matricule:" + _vm._s(this.etudiant.matricule))
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("mdb-card-text", [
+                    _c("h6", [_vm._v("Promo:" + _vm._s(this.etudiant.promo))])
+                  ]),
+                  _vm._v(" "),
+                  _c("mdb-card-text", [
+                    _c("h6", [_vm._v("Groupe:" + _vm._s(this.etudiant.groupe))])
+                  ])
+                ],
+                1
+              ),
           _vm._v(" "),
           _c("mdb-btn", { attrs: { block: "", color: "info" } }, [
             _vm._v("Voir profil")
@@ -39029,7 +39153,10 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "form",
-    { staticClass: "text-info", attrs: { action: _vm.__url, method: "POST" } },
+    {
+      staticClass: "text-info",
+      attrs: { action: _vm.log_url, method: "POST" }
+    },
     [
       _c("br"),
       _vm._v(" "),
@@ -39041,7 +39168,7 @@ var render = function() {
         "p",
         {
           staticClass:
-            "mb-4 mt-4 h2 text-monospace text-info list-inline text-center "
+            "mb-4 mt-4 h2 text-monospace text-info list-inline text-center"
         },
         [_vm._v("Connexion")]
       ),
@@ -39086,11 +39213,7 @@ var render = function() {
               attrs: { outline: "primary-text", type: "submit" }
             },
             [_vm._v("Se connecter")]
-          ),
-          _vm._v(" "),
-          _c("br"),
-          _vm._v(" "),
-          _c("br")
+          )
         ],
         1
       )
@@ -39285,13 +39408,7 @@ var render = function() {
               "form",
               {
                 staticClass: "needs-validation",
-                attrs: { novalidate: "" },
-                on: {
-                  submit: function($event) {
-                    $event.preventDefault()
-                    return _vm.submitForm($event)
-                  }
-                }
+                attrs: { method: "POST", action: _vm.register_url }
               },
               [
                 _c(
@@ -39308,13 +39425,10 @@ var render = function() {
                               "mdb-col",
                               [
                                 _c("mdb-input", {
-                                  attrs: { label: "Nom", required: "" },
-                                  model: {
-                                    value: _vm.fields.name,
-                                    callback: function($$v) {
-                                      _vm.$set(_vm.fields, "name", $$v)
-                                    },
-                                    expression: "fields.name"
+                                  attrs: {
+                                    label: "Nom",
+                                    name: "name",
+                                    required: ""
                                   }
                                 })
                               ],
@@ -39325,13 +39439,10 @@ var render = function() {
                               "mdb-col",
                               [
                                 _c("mdb-input", {
-                                  attrs: { label: "Prénom", required: "" },
-                                  model: {
-                                    value: _vm.fields.prénom,
-                                    callback: function($$v) {
-                                      _vm.$set(_vm.fields, "prénom", $$v)
-                                    },
-                                    expression: "fields.prénom"
+                                  attrs: {
+                                    label: " vous étes ?",
+                                    name: "type",
+                                    required: ""
                                   }
                                 })
                               ],
@@ -39351,14 +39462,8 @@ var render = function() {
                                   attrs: {
                                     type: "email",
                                     label: "Your email",
+                                    name: "email",
                                     required: ""
-                                  },
-                                  model: {
-                                    value: _vm.fields.email,
-                                    callback: function($$v) {
-                                      _vm.$set(_vm.fields, "email", $$v)
-                                    },
-                                    expression: "fields.email"
                                   }
                                 })
                               ],
@@ -39376,15 +39481,9 @@ var render = function() {
                               [
                                 _c("mdb-input", {
                                   attrs: {
+                                    name: "password",
                                     label: "Mot de passe",
                                     type: "password"
-                                  },
-                                  model: {
-                                    value: _vm.fields.password,
-                                    callback: function($$v) {
-                                      _vm.$set(_vm.fields, "password", $$v)
-                                    },
-                                    expression: "fields.password"
                                   }
                                 })
                               ],
@@ -39396,15 +39495,9 @@ var render = function() {
                               [
                                 _c("mdb-input", {
                                   attrs: {
+                                    name: "confirm_password",
                                     label: "Confirmer le mot de passe",
                                     type: "password"
-                                  },
-                                  model: {
-                                    value: _vm.fields.password1,
-                                    callback: function($$v) {
-                                      _vm.$set(_vm.fields, "password1", $$v)
-                                    },
-                                    expression: "fields.password1"
                                   }
                                 })
                               ],
@@ -39422,16 +39515,9 @@ var render = function() {
                 _vm._v(" "),
                 _c("br"),
                 _vm._v(" "),
-                _c(
-                  "mdb-card-footer",
-                  { staticClass: "d-flex white justify-content-center" },
-                  [
-                    _c("mdb-btn", { attrs: { outline: "info" } }, [
-                      _vm._v("S'inscrire")
-                    ])
-                  ],
-                  1
-                )
+                _c("mdb-btn", { attrs: { type: "submit", outline: "info" } }, [
+                  _vm._v("S'inscrire")
+                ])
               ],
               1
             )
@@ -39490,8 +39576,8 @@ var render = function() {
           _vm._v(" "),
           _c(
             "mdb-tbl-body",
-            _vm._l(_vm.notes, function(note) {
-              return _c("tr", { key: note }, [
+            _vm._l(this.notes, function(note) {
+              return _c("tr", { key: note.id }, [
                 _c("th", [_vm._v(_vm._s(note.module))]),
                 _vm._v(" "),
                 _c("td", [_vm._v(_vm._s(note.cc))]),
@@ -51711,6 +51797,7 @@ Vue.component('card-component', __webpack_require__(/*! ./components/card.vue */
 Vue.component('table-component', __webpack_require__(/*! ./components/table.vue */ "./resources/js/components/table.vue")["default"]);
 Vue.component('ajouter-component', __webpack_require__(/*! ./components/ajouter.vue */ "./resources/js/components/ajouter.vue")["default"]);
 Vue.component('admin-component', __webpack_require__(/*! ./components/admin.vue */ "./resources/js/components/admin.vue")["default"]);
+Vue.component('c-component', __webpack_require__(/*! ./components/c.vue */ "./resources/js/components/c.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -51902,6 +51989,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ajouter_vue_vue_type_template_id_73d47e77___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ajouter_vue_vue_type_template_id_73d47e77___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/c.vue":
+/*!***************************************!*\
+  !*** ./resources/js/components/c.vue ***!
+  \***************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _c_vue_vue_type_template_id_2508e3b0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./c.vue?vue&type=template&id=2508e3b0& */ "./resources/js/components/c.vue?vue&type=template&id=2508e3b0&");
+/* harmony import */ var _c_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./c.vue?vue&type=script&lang=js& */ "./resources/js/components/c.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _c_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _c_vue_vue_type_template_id_2508e3b0___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _c_vue_vue_type_template_id_2508e3b0___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/c.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/c.vue?vue&type=script&lang=js&":
+/*!****************************************************************!*\
+  !*** ./resources/js/components/c.vue?vue&type=script&lang=js& ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_c_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./c.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/c.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_c_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/c.vue?vue&type=template&id=2508e3b0&":
+/*!**********************************************************************!*\
+  !*** ./resources/js/components/c.vue?vue&type=template&id=2508e3b0& ***!
+  \**********************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_c_vue_vue_type_template_id_2508e3b0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./c.vue?vue&type=template&id=2508e3b0& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/c.vue?vue&type=template&id=2508e3b0&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_c_vue_vue_type_template_id_2508e3b0___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_c_vue_vue_type_template_id_2508e3b0___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -52288,8 +52444,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp1\htdocs\TP\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp1\htdocs\TP\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\prog\TP_IGL01\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\prog\TP_IGL01\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

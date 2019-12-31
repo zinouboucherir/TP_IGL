@@ -7,30 +7,30 @@
       <mdb-card-title class="mt-4 h2 text-monospace  text-info text-center" >Inscription</mdb-card-title>
       <mdb-card-body>
       
-        <form class="needs-validation" novalidate @submit.prevent="submitForm">
+        <form class="needs-validation" method="POST" v-bind:action="register_url">
           <mdb-row>
             <mdb-col md="12">
                <mdb-row>
                 <mdb-col>
-                  <mdb-input label="Nom" v-model="fields.name" required />
+                  <mdb-input label="Nom" name="name" required />
                 </mdb-col>
                 <mdb-col>
-                  <mdb-input label="Prénom" v-model="fields.prénom" required />
+                  <mdb-input label=" vous étes ?" name="type" required />
                 </mdb-col>
               </mdb-row>
     
               <mdb-row>
                 <mdb-col>
-                  <mdb-input type="email" label="Your email" v-model="fields.email" required />
+                  <mdb-input type="email" label="Your email" name="email" required />
                 </mdb-col>
               </mdb-row>
               
                <mdb-row>
                 <mdb-col>
-                   <mdb-input v-model="fields.password" label="Mot de passe"  type="password"/>
+                   <mdb-input name="password" label="Mot de passe"  type="password"/>
                 </mdb-col>
                 <mdb-col>
-                   <mdb-input v-model="fields.password1" label="Confirmer le mot de passe" type="password"/>
+                   <mdb-input name="confirm_password" label="Confirmer le mot de passe" type="password"/>
                 </mdb-col>
               </mdb-row>
             
@@ -39,9 +39,9 @@
           </mdb-row>
             <br/>
         
-     <mdb-card-footer class="d-flex white justify-content-center">
-          <mdb-btn outline="info">S'inscrire</mdb-btn>
-        </mdb-card-footer>
+   
+          <mdb-btn type="submit" outline="info">S'inscrire</mdb-btn>
+      
         </form>
       </mdb-card-body>
     </mdb-card>
@@ -63,6 +63,7 @@
   } from "mdbvue";
 
   export default {
+     props:['url'], 
     components: {
       mdbContainer,
       mdbInput,
@@ -78,22 +79,10 @@
     },
     data() {
       return {
-        fields: {
-          name: "",
-          prénom:"",
-          email: "",
-          password: "",
-          password1: "",
-          message: "",
-        }
+        register_url:this.url
       };
-    },
-    methods: {
-      submitForm(event) {
-        event.target.classList.add("was-validated");
-        // submit form
-      }
     }
+ 
   };
 </script>
 <style scoped>

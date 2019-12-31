@@ -12,7 +12,7 @@
         </tr>
       </mdb-tbl-head>
       <mdb-tbl-body>
-        <tr v-for="note in notes" :key="note">
+        <tr v-for="note in this.notes" :key="note.id">
           <th>{{note.module}}</th>
           <td>{{note.cc}}</td>
           <td>{{note.tp}}</td>
@@ -31,22 +31,17 @@ import axios from "axios";
   import { mdbTbl, mdbTblHead, mdbTblBody } from 'mdbvue';
   export default {
     name: 'TablePage',
-    props:['url'],
+    props:['notes'],
     components: {
       mdbTbl,
       mdbTblHead,
       mdbTblBody
     },data () {
       return {
-        _url : this.url, 
-        notes :''
+        
       }
     }
     
-    ,mounted ()
-    {
-      axios.get(this._url)
-      .then(response => (this.notes=response.notes)); 
-    }
+  
   }
 </script>

@@ -28,6 +28,7 @@ Vue.component('card-component', require('./components/card.vue').default);
 Vue.component('table-component', require('./components/table.vue').default);
 Vue.component('ajouter-component', require('./components/ajouter.vue').default);
 Vue.component('admin-component', require('./components/admin.vue').default);
+Vue.component('c-component', require('./components/c.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

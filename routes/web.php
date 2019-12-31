@@ -10,9 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/ajouter', function () {
-    return view('ajouter');
-});
+
+Route::post('/ajouter','EtudiantController@add_student')->name('ajouter');
 Route::get('/', function () {
     return view('welcome');
 });
@@ -23,6 +22,5 @@ Route::get('/con', function () {
     return view('page');
 });
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/get_marks','EtudiantController@get_marks')->name('get_marks'); 
+Route::get('/get_marks','EtudiantController@get_marks')->name('get_marks');
