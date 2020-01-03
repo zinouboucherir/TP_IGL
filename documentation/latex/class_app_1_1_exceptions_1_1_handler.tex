@@ -1,0 +1,108 @@
+\hypertarget{class_app_1_1_exceptions_1_1_handler}{}\doxysection{Handler Class Reference}
+\label{class_app_1_1_exceptions_1_1_handler}\index{Handler@{Handler}}
+
+
+Inheritance diagram for Handler\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=173pt]{class_app_1_1_exceptions_1_1_handler__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Handler\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=173pt]{class_app_1_1_exceptions_1_1_handler__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_app_1_1_exceptions_1_1_handler_a154e014b0d8b15cc04a646faded4a69f}{report}} (Exception \$exception)
+\item 
+\mbox{\hyperlink{class_app_1_1_exceptions_1_1_handler_af86680a7b1f9cf18e5d15e29e6a32dd8}{render}} (\$request, Exception \$exception)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries \$dont\+Report}
+\item 
+{\bfseries \$dont\+Flash}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_app_1_1_exceptions_1_1_handler_af86680a7b1f9cf18e5d15e29e6a32dd8}\label{class_app_1_1_exceptions_1_1_handler_af86680a7b1f9cf18e5d15e29e6a32dd8}} 
+\index{Handler@{Handler}!render@{render}}
+\index{render@{render}!Handler@{Handler}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily render (\begin{DoxyParamCaption}\item[{}]{\$request,  }\item[{Exception}]{\$exception }\end{DoxyParamCaption})}
+
+Render an exception into an H\+T\+TP response.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Illuminate\textbackslash{}\+Http\textbackslash{}\+Request & {\em \$request} & \\
+\hline
+\textbackslash{}\+Exception & {\em \$exception} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\textbackslash{}\+Illuminate\textbackslash{}\+Http\textbackslash{}\+Response 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_app_1_1_exceptions_1_1_handler_a154e014b0d8b15cc04a646faded4a69f}\label{class_app_1_1_exceptions_1_1_handler_a154e014b0d8b15cc04a646faded4a69f}} 
+\index{Handler@{Handler}!report@{report}}
+\index{report@{report}!Handler@{Handler}}
+\doxysubsubsection{\texorpdfstring{report()}{report()}}
+{\footnotesize\ttfamily report (\begin{DoxyParamCaption}\item[{Exception}]{\$exception }\end{DoxyParamCaption})}
+
+Report or log an exception.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\textbackslash{}\+Exception & {\em \$exception} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{class_app_1_1_exceptions_1_1_handler_a9298df83d140b018c3b1c0b635205492}\label{class_app_1_1_exceptions_1_1_handler_a9298df83d140b018c3b1c0b635205492}} 
+\index{Handler@{Handler}!\$dontFlash@{\$dontFlash}}
+\index{\$dontFlash@{\$dontFlash}!Handler@{Handler}}
+\doxysubsubsection{\texorpdfstring{\$dontFlash}{$dontFlash}}
+{\footnotesize\ttfamily \$dont\+Flash\hspace{0.3cm}{\ttfamily [protected]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= [}
+\DoxyCodeLine{        \textcolor{stringliteral}{'password'},}
+\DoxyCodeLine{        \textcolor{stringliteral}{'password\_confirmation'},}
+\DoxyCodeLine{    ]}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_app_1_1_exceptions_1_1_handler_ae8da729578a9bcab20236efc2404d62e}\label{class_app_1_1_exceptions_1_1_handler_ae8da729578a9bcab20236efc2404d62e}} 
+\index{Handler@{Handler}!\$dontReport@{\$dontReport}}
+\index{\$dontReport@{\$dontReport}!Handler@{Handler}}
+\doxysubsubsection{\texorpdfstring{\$dontReport}{$dontReport}}
+{\footnotesize\ttfamily \$dont\+Report\hspace{0.3cm}{\ttfamily [protected]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= [}
+\DoxyCodeLine{        }
+\DoxyCodeLine{    ]}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Exceptions/Handler.\+php\end{DoxyCompactItemize}
