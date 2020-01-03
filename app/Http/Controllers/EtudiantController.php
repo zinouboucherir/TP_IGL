@@ -43,6 +43,7 @@ class EtudiantController extends Controller
        $etudiant->matricule=$request->input('matricule'); 
        $etudiant->user_id=$user->id; 
        $etudiant->save(); 
+       
        return redirect()->route('home')
        ->with('success','étudiant ajouté avec succés!'); 
        
